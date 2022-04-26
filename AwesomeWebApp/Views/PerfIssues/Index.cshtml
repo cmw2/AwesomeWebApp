@@ -33,7 +33,10 @@
         <br />
         <p>Use 'a lot of memory' to trigger auto-heal quickly and use 'little memory' to show slow emory leak </p>
         <div class="col-md-4 text-center">
-            <p><a class="btn btn-lg btn-warning" id="SleepButton">Sleep for a while (10 sec)</a></p>
+            <p><a class="btn btn-lg btn-warning" id="SleepButton10">Sleep for a while (10 sec)</a></p>
+        </div>
+        <div class="col-md-4 text-center">
+            <p><a class="btn btn-lg btn-warning" id="SleepButton60">Sleep for longer (60 sec)</a></p>
         </div>
         <div class="col-md-4 text-center">
             <p><a class="btn btn-lg btn-danger" id="SpinCpuButton">Spin CPU like Crazy!</a></p>
@@ -43,8 +46,14 @@
     @section scripts {
         <script>
             $(function () {
-                $("#SleepButton").click(function () {
-                    $.get("@Url.Action("SleepBtnHandler", "PerfIssues")");
+                $("#SleepButton10").click(function () {
+                    $.get("@Url.Action("SleepBtnHandler", "PerfIssues", new { msToSleep = 10000 })");
+                });
+            });
+
+            $(function () {
+                $("#SleepButton60").click(function () {
+                    $.get("@Url.Action("SleepBtnHandler", "PerfIssues", new { msToSleep = 60000 })");
                 });
             });
 

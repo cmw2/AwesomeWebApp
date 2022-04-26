@@ -46,14 +46,13 @@ namespace AwesomeWebApp.Controllers
         /// <summary>
         /// 
         /// </summary>
-        public void SleepBtnHandler()
+        public void SleepBtnHandler(int msToSleep = 10000)
         {
-            int i = 10000;
             int threadID = System.Threading.Thread.CurrentThread.ManagedThreadId;
 
-            Trace.TraceInformation("Thread: {0}\tbefore sleeping for {1} msec",threadID, i);
-            System.Threading.Thread.Sleep(10000);
-            Trace.TraceInformation("Thread: {0}\tafter sleeping for {1} msec", threadID, i);
+            Trace.TraceInformation("Thread: {0}\tbefore sleeping for {1} msec",threadID, msToSleep);
+            System.Threading.Thread.Sleep(msToSleep);
+            Trace.TraceInformation("Thread: {0}\tafter sleeping for {1} msec", threadID, msToSleep);
         }
 
         public void SpinCpuBtnHandler()
